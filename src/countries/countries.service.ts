@@ -28,8 +28,10 @@ export class CountriesService {
             catchError(e => {
                 throw new HttpException(e.response.data, e.response.status);
             }),
+
             map((axiosResponse: AxiosResponse) => {
-                return axiosResponse.data;
+                const { data } = axiosResponse;
+                return data;
             })
         );
     }
